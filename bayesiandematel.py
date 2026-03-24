@@ -48,7 +48,7 @@ class BayesianDEMATEL:
         pass
     
     def compute_posterior(self, x, prior: Score, likelihood: Score) -> Score:
-        return prior * likelihood    ## define __mul__ in Score first
+        return prior * likelihood    ## define __mul__ in Score first    ### we need to decide the form of the likelihood first --> should we use probit?
     
 class DEMATEL:
     def __init__(self, adjacency, num_concepts):
