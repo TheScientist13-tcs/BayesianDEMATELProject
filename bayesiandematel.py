@@ -52,6 +52,10 @@ class ScoreLikelihood:  ### This pertains to the actual score provided by expert
     pass
 
 
+class MCMC:
+    pass
+
+
 class BayesianDEMATEL:
     def __init__(self):
         pass
