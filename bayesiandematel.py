@@ -9,7 +9,7 @@ warnings.filterwarnings("ignore", "is_categorical_dtype")
 warnings.filterwarnings("ignore", "use_inf_as_na")
 
 
-class ScorePrior:  ### This pertains to our belief about the score (theta) prior before seeing the data given by experts
+class ScoreEstimator:  ### This pertains to our belief about the score (theta) prior before seeing the data given by experts
     def __init__(
         self, score, concentration, label=""
     ):  ## concentration is how much the distribution concentrates on the score
@@ -56,7 +56,9 @@ class BayesianDEMATEL:
     def __init__(self):
         pass
 
-    def compute_posterior(self, x, prior: Score, likelihood: Score) -> Score:
+    def compute_posterior(
+        self, x, prior: ScoreEstimator, likelihood: ScoreLikelihood
+    ) -> ScoreEstimator:
         return (
             prior * likelihood
         )  ## define __mul__ in Score first    ### we need to decide the form of the likelihood first --> should we use probit?
